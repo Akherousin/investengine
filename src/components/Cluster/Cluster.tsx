@@ -7,7 +7,7 @@ import {
 import './Cluster.css';
 
 type ClusterVariants =
-  | { isFluid: true; minSize: CSSLength }
+  | { isFluid: true; minSize?: CSSLength }
   | {
       isFluid?: false;
       justify?: CSSJustifyContentProperty;
