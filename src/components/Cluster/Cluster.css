@@ -1,0 +1,20 @@
+.cluster {
+  --_space: var(--space, var(--cluster-default-space));
+  --_horizontal-space: var(--horizontal-space, var(--_space));
+  --_vertical-space: var(--vertical-space, var(--_space));
+  --_align: var(--align, var(--cluster-default-align));
+  --_justify: var(--justify, var(--cluster-default-justify));
+
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--_vertical-space);
+  column-gap: var(--_horizontal-space);
+  justify-content: var(--_justify);
+  align-items: var(--_align);
+}
+
+.cluster[data-variant='fluid'] > * {
+  --_min-size: var(--min-size, var(--cluster-default-min-size));
+
+  flex: 1 1 var(--_min-size);
+}
