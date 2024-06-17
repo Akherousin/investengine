@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { type CSSProperties, type ComponentPropsWithoutRef } from 'react';
 import {
   type CSSAlignItemsProperty,
   type CSSJustifyContentProperty,
@@ -14,22 +14,35 @@ type ClusterVariants =
       align?: CSSAlignItemsProperty;
     };
 
-type ClusterProps = {
+type ClusterCommonProps = {
   children: React.ReactNode;
   horizontalSpace?: CSSLength;
   verticalSpace?: CSSLength;
   space?: CSSLength;
-} & ClusterVariants;
+};
+
+type ClusterProps = ClusterCommonProps &
+  ClusterVariants &
+  ComponentPropsWithoutRef<'div'>;
 
 function Cluster(props: ClusterProps) {
-  const { children, horizontalSpace, verticalSpace, space, isFluid } = props;
+  const {
+    children,
+    horizontalSpace,
+    verticalSpace,
+    space,
+    isFluid,
+    className,
+    ...delegated
+  } = props;
   const minSize = isFluid ? props.minSize : undefined;
   const justify = !isFluid ? props.justify : undefined;
   const align = !isFluid ? props.align : undefined;
+  const classes = `${className || ''} cluster`.trim();
 
   return (
     <div
-      className="cluster"
+      className={classes}
       style={
         {
           '--horizontal-space': horizontalSpace,
@@ -41,6 +54,7 @@ function Cluster(props: ClusterProps) {
         } as CSSProperties
       }
       data-variant={props.isFluid ? 'fluid' : undefined}
+      {...delegated}
     >
       {children}
     </div>
