@@ -1,7 +1,21 @@
 .cluster {
-  --_space: var(--space, var(--cluster-default-space));
-  --_horizontal-space: var(--horizontal-space, var(--_space));
-  --_vertical-space: var(--vertical-space, var(--_space));
+  --_default-horizontal-space: var(
+    --cluster-default-horizontal-space,
+    var(--cluster-default-space)
+  );
+  --_default-vertical-space: var(
+    --cluster-default-vertical-space,
+    var(--cluster-default-space)
+  );
+
+  --_horizontal-space: var(
+    --cluster-horizontal-space,
+    var(--cluster-space, var(--_default-horizontal-space))
+  );
+  --_vertical-space: var(
+    --cluster-vertical-space,
+    var(--cluster-space, var(--_default-vertical-space))
+  );
   --_align: var(--align, var(--cluster-default-align));
   --_justify: var(--justify, var(--cluster-default-justify));
 

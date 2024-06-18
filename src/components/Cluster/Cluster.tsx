@@ -45,9 +45,9 @@ function Cluster(props: ClusterProps) {
       className={classes}
       style={
         {
-          '--horizontal-space': horizontalSpace,
-          '--vertical-space': verticalSpace,
-          '--space': space,
+          '--cluster-horizontal-space': horizontalSpace,
+          '--cluster-vertical-space': verticalSpace,
+          '--cluster-space': space,
           '--min-size': minSize,
           '--justify': justify,
           '--align': align,
