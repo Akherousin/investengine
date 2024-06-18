@@ -5,8 +5,60 @@
 }
 
 :root {
+  /* SPACING */
+  --fluid-8-12: clamp(8px, 4.6292px + 0.8989vi, 12px);
+  --fluid-24-40: clamp(1.5rem, 0.6573rem + 3.5955vi, 2.5rem);
+  --fluid-24-48: clamp(1.5rem, 0.236rem + 5.3933vi, 3rem);
+
+  /* CLUSTER */
   --cluster-default-min-size: 25rem;
   --cluster-default-space: 1rem;
+  --cluster-default-vertical-space: var(--fluid-24-48);
+  --cluster-default-horizontal-space: var(--fluid-24-40);
   --cluster-default-justify: flex-start;
-  --cluster-default-align: flex-start;
+  --cluster-default-align: stretch;
+
+  /* CARD */
+  --card-border-radius: var(--fluid-8-12);
+
+  /* CENTER */
+  --center-default-size: 64rem;
+  --center-default-gutters: 1rem;
+
+  /* COLORS */
+  --color-white: hsla(0, 0%, 100%, 1);
+  --color-black: hsla(0, 0%, 0%, 0.9);
+  --color-primary: hsla(240, 90%, 60%, 1);
+  --color-secondary: hsla(331, 99%, 62%, 1);
+  --color-primary-darker: hsla(216, 69%, 34%);
+
+  /* FONT-SIZES */
+  --font-size-m: 1.125rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  /* FONT-FAMILIES */
+  --font-family-heading: 'Poppins', sans-serif;
+  --font-family-body: 'SF Pro', sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  font-family: var(--font-family-body);
+  min-block-size: 100vh;
+}
+
+#root {
+  min-block-size: 100vh;
+  padding-block-start: 10rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
 }
