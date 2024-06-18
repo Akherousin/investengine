@@ -1,0 +1,9 @@
+.center {
+  --_max: var(--center-max-size, var(--center-default-size));
+  --_gutters: var(--center-gutters, var(--center-default-gutters));
+
+  box-sizing: content-box;
+  max-inline-size: var(--_max);
+  padding-inline: var(--_gutters);
+  margin-inline: auto;
+}
