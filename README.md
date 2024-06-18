@@ -1,5 +1,7 @@
 # InvestEngine Test Assignment
 
+[LIVE LINK](https://investengine.vercel.app/)
+
 ![InvestEngine screenshot](/public/Screenshot.png)
 
 ## Card Component
@@ -134,6 +136,27 @@ So I've decided to use a fully opaque absolutely positioned button or link that 
 ```
 
 A few caveats: it's a little bit more repetitive from the DX perspective as we have to duplicate the title to provide the action with an accessible name. One other thing is that the text of the card is not selectable. It's probably not a big deal since the text is probably going to be available for selection on the page that link leads to. I believe this approach overall offers a better user experience.
+
+### Responsiveness
+
+The Card is supposed to be pretty responsive, independently of the context around it, even though I didn't use any media queries. I used one container query on the card image since there wasn't another good way to change the absolute positioning of the image depending on the context:
+
+```css
+.card-image {
+  position: absolute;
+  inset-block-end: 12px;
+  inset-inline-end: 12px;
+
+  @container card (min-width: 43.75rem) {
+    & {
+      inset-block-end: 50%;
+      translate: 0% 50%;
+    }
+  }
+}
+```
+
+Container queries are supported by all major browsers. But in the event that they're not supported, the image will just stay positioned in the corner of the card, so it's not a breaking behavior and the card will be fully usable.
 
 ### Layouts
 
